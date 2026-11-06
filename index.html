@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ნინი, ეს შენთვისაა ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap');
+
+:root{
+ --bg:#090609;--wine:#270d19;--red:#a83b61;
+ --pink:#f0a4bc;--white:#f8edf1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ background:var(--bg);color:var(--white);
+ font-family:'Noto Sans Georgian',sans-serif;
+ min-height:100vh;overflow-x:hidden;
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;
+ background:radial-gradient(ellipse at 50% 45%,#45132655,transparent 65%);
+ z-index:-1;
+}
+#stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{
+ position:absolute;width:2px;height:2px;background:#f5b7ca;
+ border-radius:50%;opacity:.5;animation:twinkle 3s infinite alternate;
+}
+@keyframes twinkle{to{opacity:.08;transform:scale(.4)}}
+.heart{
+ position:fixed;bottom:-30px;color:#d65b83;
+ opacity:0;pointer-events:none;animation:float 8s linear forwards;
+}
+@keyframes float{
+ 10%{opacity:.4}100%{transform:translateY(-110vh) rotate(35deg);opacity:0}
+}
+main{width:min(900px,92%);margin:auto}
+.screen{
+ min-height:100svh;display:flex;align-items:center;
+ justify-content:center;text-align:center;padding:65px 0;
+}
+.hidden{display:none!important}
+.eyebrow{
+ color:var(--pink);letter-spacing:5px;font-size:10px;
+ text-transform:uppercase;margin-bottom:24px;
+}
+h1{font-size:clamp(36px,8vw,75px);font-weight:400;line-height:1.4}
+h1 span{color:var(--pink)}
+.subtitle{color:#c6aab5;line-height:2;margin:22px auto;max-width:550px;font-size:14px}
+.line{
+ width:70px;height:1px;background:var(--red);margin:30px auto;
+}
+.btn{
+ border:1px solid #a84c6b;background:linear-gradient(135deg,#54182f,#240b18);
+ color:white;padding:17px 27px;border-radius:3px;
+ font-family:inherit;font-size:12px;letter-spacing:1px;
+ cursor:pointer;transition:.3s;margin:8px;
+}
+.btn:hover{background:#7b2948;transform:translateY(-3px);box-shadow:0 10px 35px #9a345344}
+.btn.secondary{background:transparent;border-color:#57303e}
+.card{
+ background:linear-gradient(145deg,#1c1018eF,#100a10ef);
+ border:1px solid #67314766;border-radius:8px;
+ padding:clamp(24px,6vw,55px);width:100%;
+ box-shadow:0 25px 100px #0009;
+}
+h2{font-size:clamp(23px,5vw,38px);font-weight:400;line-height:1.6}
+p{font-size:14px;line-height:2.2;color:#d1b9c2}
+.letter{
+ text-align:left;white-space:pre-line;
+ color:#e9d5dd;font-size:14px;line-height:2.5;
+ margin-top:25px;
+}
+.signature{color:var(--pink);margin-top:30px;font-size:17px}
+.section-title{margin-bottom:20px}
+.question{margin:25px 0;color:#f0c2d1}
+.choices{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+.choice{
+ padding:13px 18px;border:1px solid #744055;
+ background:#170d14;color:#f5dce5;cursor:pointer;
+ font-family:inherit;border-radius:4px;
+}
+.choice:hover{background:#4c1a30}
+#response{color:var(--pink);margin-top:20px;min-height:30px}
+footer{text-align:center;padding:30px;color:#73505e;font-size:10px;letter-spacing:3px}
+.reveal{animation:appear 1.2s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+
+<main>
+<section class="screen" id="intro">
+ <div class="reveal">
+  <div class="eyebrow">A little message from my heart</div>
+  <h1>ნინი<span>...</span></h1>
+  <div class="line"></div>
+  <p class="subtitle">
+   ვიცი, რომ გაწყენინე.<br>
+   და მინდა რამდენიმე წუთი დამითმო.
+  </p>
+  <button class="btn" onclick="go('message')">ეს შენთვის მოვამზადე ❤️</button>
+  <p style="font-size:10px;color:#785564;margin-top:30px">NO PRESSURE. JUST HONEST WORDS.</p>
+ </div>
+</section>
+
+<section class="screen hidden" id="message">
+ <div class="card reveal">
+  <div class="eyebrow">A letter for you</div>
+  <h2>ერთი გაუგებრობა...</h2>
+  <p>მაგრამ ჩემი შეცდომა არ უნდა გამხდარიყო შენი ტკივილის მიზეზი.</p>
+  <div class="line"></div>
+  <button class="btn" onclick="revealLetter()">წაიკითხე ჩემი წერილი</button>
+  <div id="letter" class="letter hidden">
+ნინი,
+
+არ ვიცი, ზუსტად როგორ დავიწყო, მაგრამ ვიცი, რომ შენ ამას იმსახურებ.
+
+რაღაც არასწორად გავიგე. იმის ნაცვლად, რომ მშვიდად გამერკვია ყველაფერი, არასწორი დასკვნა გამოვიტანე და ამით ძალიან გატკინე გული.
+
+არ მინდა ჩემი საქციელი გავამართლო. არც იმას ვიტყვი, რომ უბრალოდ გაუგებრობა იყო და ამიტომ ყველაფერი უნდა დაივიწყო.
+
+ვიცი, რომ ჩემი სიტყვები და საქციელი შენზე ცუდად აისახა. ამას ნამდვილად ვნანობ.
+
+მინდა იცოდე, რომ შენთვის ტკივილის მიყენება არასდროს ყოფილა ჩემი სურვილი. უნდა მომესმინა შენთვის, უნდა მეკითხა და უნდა მენდო, ნაცვლად იმისა, რომ საკუთარი ვარაუდებით მემოქმედა.
+
+არ გთხოვ, რომ ყველაფერი ერთ წამში მაპატიო. მესმის, თუ გჭირდება დრო. უბრალოდ მინდა, როცა მზად იქნები, მომცე საშუალება, მოგისმინო და მშვიდად აგიხსნა ყველაფერი.
+
+შენ ჩემთვის მნიშვნელოვანი ადამიანი ხარ. და მინდა, ეს არა მხოლოდ სიტყვებით, არამედ ჩემი ქცევითაც დაგანახო.
+
+ბოდიში, ნინი. გულწრფელად.
+
+    <div class="signature">შენი დემე ❤️</div>
+  </div>
+  <div id="next" class="hidden">
+   <div class="line"></div>
+   <button class="btn" onclick="go('promise')">კიდევ ერთი რამ...</button>
+  </div>
+ </div>
+</section>
+
+<section class="screen hidden" id="promise">
+ <div class="card reveal">
+  <div class="eyebrow">Something I want you to know</div>
+  <h2>მე სიტყვებზე მეტი მინდა...</h2>
+  <div class="line"></div>
+  <p>
+   მინდა ვისწავლო, როგორ მოგისმინო უკეთ.<br>
+   როგორ არ ვიჩქარო დასკვნების გამოტანა.<br>
+   როგორ არ მოგაყენო ტკივილი ჩემი გაუგებრობით.<br><br>
+   ვიცი, რომ ნდობა სიტყვებით არ ბრუნდება.<br>
+   ის ქცევით უნდა დავიმსახურო.
+  </p>
+  <div class="line"></div>
+  <h2 style="color:var(--pink)">შენ არ ხარ ვალდებული, ახლავე მაპატიო.</h2>
+  <p style="margin-top:20px">უბრალოდ მინდოდა გცოდნოდა, რამდენად ვნანობ.</p>
+  <button class="btn" onclick="go('final')">ბოლო გვერდი ❤️</button>
+ </div>
+</section>
+
+<section class="screen hidden" id="final">
+ <div class="reveal">
+  <div class="eyebrow">From my heart to yours</div>
+  <h1 style="font-size:clamp(32px,7vw,65px)">ნინი, <span>ბოდიში.</span></h1>
+  <div class="line"></div>
+  <p class="subtitle">
+   არ მინდა ეს საიტი უბრალოდ ლამაზი გვერდი იყოს.<br>
+   მინდა, ჩემი სინანულის პატარა შეხსენება იყოს.
+  </p>
+  <div class="card" style="max-width:550px;margin:35px auto">
+   <p style="color:#f1c3d2">თუ ოდესმე მოგინდება, მინდა მოგისმინო.<br>თავის მართლების გარეშე. კამათის გარეშე. უბრალოდ მოგისმინო.</p>
+   <div class="signature">დემე ❤️</div>
+  </div>
+  <p style="font-size:11px;color:#8e6475">ზოგჯერ ყველაზე მნიშვნელოვანი სიტყვა არის — ბოდიში.</p>
+  <button class="btn secondary" onclick="go('intro')">თავიდან ნახვა</button>
+ </div>
+</section>
+</main>
+
+<footer>MADE WITH LOVE · FOR NINI</footer>
+
+<script>
+const starBox=document.getElementById('stars');
+for(let i=0;i<75;i++){
+ const s=document.createElement('div');
+ s.className='star';
+ s.style.left=Math.random()*100+'%';
+ s.style.top=Math.random()*100+'%';
+ s.style.animationDelay=Math.random()*4+'s';
+ starBox.appendChild(s);
+}
+function go(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.add('hidden'));
+ const target=document.getElementById(id);
+ target.classList.remove('hidden');
+ target.querySelector('.reveal')?.classList.remove('reveal');
+ void target.offsetWidth;
+ target.querySelector('.reveal')?.classList.add('reveal');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function revealLetter(){
+ document.getElementById('letter').classList.remove('hidden');
+ document.getElementById('next').classList.remove('hidden');
+ document.querySelector('#message .btn').classList.add('hidden');
+}
+setInterval(()=>{
+ const h=document.createElement('div');
+ h.className='heart';
+ h.textContent='♥';
+ h.style.left=Math.random()*100+'%';
+ h.style.fontSize=(12+Math.random()*15)+'px';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),8500);
+},1400);
+</script>
+</body>
+</html>
